@@ -1,0 +1,17 @@
+/node_modules
+node_modules/
+**/node_modules
+/bower_components
+**/bower_components
+bower_components/
+/.idea
+.idea/
+**/.idea
+**/.idea/**
+/target
+target/
+**/target
+/sources
+sources/
+**/sources
+*.iml
