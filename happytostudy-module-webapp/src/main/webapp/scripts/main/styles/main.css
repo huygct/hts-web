@@ -1,0 +1,62 @@
+.menu-side-left md-sidenav {
+  width: 200px;
+  min-width: 200px;
+  max-width: 200px;
+}
+.menu-side-left ul {
+  padding: 0;
+}
+.htl-header .htl-toolbar {
+  background-color: #106cc8;
+}
+.htl-header .htl-toolbar .htl-name-app {
+  text-align: left;
+}
+.htl-header .htl-toolbar .htl-menu-right-on-toolbar {
+  text-align: right;
+}
+.htl-header .htl-toolbar .htl-menu-right-on-toolbar .htl-button-option {
+  color: #fff;
+}
+.htl-header .htl-toolbar .htl-menu-right-on-toolbar .htl-button-account {
+  color: #fff;
+}
+.htl-header .htl-toolbar .htl-menu-right-on-toolbar .btn-group .dropdown-menu {
+  left: auto;
+  right: 0;
+}
+.accordion-menu .accordion-children .menuToggle-child-button {
+  display: block;
+  text-align: left;
+  padding-left: 16px;
+  text-transform: none;
+}
+.accordion-menu .menuToggle-parent-button {
+  position: relative;
+  display: block;
+  text-align: left;
+}
+.accordion-menu .menuToggle-selected {
+  background-color: #267ed5;
+}
+.accordion-menu .menuToggle-parent-button .menuToggle-icon-expand {
+  position: absolute;
+  right: 4px;
+  top: 12px;
+}
+.htl-menu-right-on-toolbar {
+  font-size: 14px;
+}
+.md-grid.htl-bottomSheet {
+  padding-left: 0;
+  padding-right: 0;
+}
+.htl-bottomSheet-add-vocabulary .htl-button-vocabulary {
+  text-align: right;
+}
+.htl-bottomSheet-add-vocabulary .htl-title-add-vocabulary {
+  padding: 16px;
+  font-size: 16px;
+  background-color: #3f51b5;
+  color: #fff;
+}

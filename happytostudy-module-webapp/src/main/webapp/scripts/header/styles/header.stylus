@@ -1,0 +1,83 @@
+.htl-header-menu-account
+  background-color #000022
+  color white
+  height 32px
+
+.hts-wrapper-button-login-app
+  position: relative
+.hts-button-login-app
+  position: absolute
+  right 0
+
+
+.htl-header-search-and-cart
+  background-color #000044
+  color white
+  height 60px
+
+.hts-wrapper-search-box
+  position: relative
+
+.hts-search-box-of-header
+  width 300px
+  position absolute
+  left 150px
+  top 8px
+
+.hts-logo-app
+  position: absolute;
+  font-size: 50px;
+  left: 90px;
+  top: 4px;
+.hts-button-search-app
+  text-transform: none;
+  position: absolute;
+  left: 450px;
+  top: 4px
+
+.htl-menu-toolbar
+  .htl-wrapper-menu-toolbar
+    color white
+    background-color #296293
+    .htl-toolbar-menu-mini-screen
+      height 40px
+      position relative
+      .htl-icon-menu-toolbar
+        position absolute
+        right 10px
+        top 0
+        margin 0
+        padding 0
+
+    .htl-list-menu
+      display none
+      ul
+        margin 0 auto
+        li
+          display inline-block
+          margin 0
+          a
+            display block
+            padding 1.8rem 1rem 1.2rem 1rem
+            height 5rem
+            text-decoration none
+            color white
+          a:hover
+            background-color #3498db
+            outline none
+        .tab-current
+          a
+            background #ecf3fa
+            color #296293
+          a:hover
+            background #ecf3fa
+            color #74777b
+
+
+@media (min-width: 300px)
+  .htl-menu-toolbar
+    .htl-wrapper-menu-toolbar
+      .htl-list-menu
+        display block
+      .htl-toolbar-menu-mini-screen
+        display none

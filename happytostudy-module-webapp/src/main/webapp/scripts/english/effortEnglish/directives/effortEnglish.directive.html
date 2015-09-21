@@ -1,0 +1,41 @@
+<div>
+  <div class="md-padding">
+    <p>{{'english.effortEnglish.titleChooseLevel' | i18next}}</p>
+
+    <md-select placeholder="Choose level to study" ng-model="vm.effortEnglish.idSubjectWasSelected" md-on-close="vm.getLessonsFormId()">
+      <md-option ng-repeat="subject in vm.effortEnglish.subjects"
+                 ng-value="subject.id">{{subject.nameSubject}}
+      </md-option>
+    </md-select>
+
+    <accordion close-others="false" ng-show="vm.effortEnglish.showPdf">
+      <accordion-group is-open="lesson.showLessonDetail" ng-repeat="lesson in vm.effortEnglish.subjectWasSelected.lessons | orderBy: 'id'">
+        <accordion-heading>
+          {{lesson.nameLesson}}
+        </accordion-heading>
+        <div ng-repeat="lessonDetail in lesson.lessonsDetails">
+          <div>
+            <md-button class="md-primary" ng-click="vm.setUrl(lessonDetail)" target="_blank">
+              {{lessonDetail.name}}.{{lessonDetail.type}}
+            </md-button>
+          </div>
+        </div>
+      </accordion-group>
+    </accordion>
+
+  </div>
+
+
+  <div collapse="vm.effortEnglish.showPdf" class="htl-wrapper-show-pdf">
+    <div class="well well-lg" ng-if="vm.effortEnglish.urlPdf !== ''">
+      <embed src="{{vm.effortEnglish.urlPdf}}" class="htl-show-pdf" width="auto" height="auto">
+      <md-button class="md-raised md-primary htl-button-close-pdf" ng-click="vm.closePdf()">Close Pdf</md-button>
+    </div>
+  </div>
+
+  <audio controls autoplay loop class="htl-effort-english-audio-tab"
+         src="{{vm.effortEnglish.urlAudio}}" controls>
+    <p>If you are reading this, it is because your browser does not support the audio element.</p>
+  </audio>
+  <!--<img src="images/48.jpg" alt="Mountain View" style="width:304px;height:228px;">-->
+</div>

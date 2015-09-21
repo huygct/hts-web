@@ -1,0 +1,111 @@
+<div>
+
+  <!--menu 1-->
+  <section class="htl-header-menu-account">
+    <div class="hts-wrapper-button-login-app" ng-if="!vm.wasLogin">
+      <md-button flex="50" class="md-primary hts-button-login-app" ng-click="vm.clickButtonLogin($event)">
+        Login
+      </md-button>
+    </div>
+  </section>
+
+  <!--menu 2-->
+  <section class="htl-header-search-and-cart">
+
+    <div class="hts-wrapper-search-box">
+      <i class="fa fa-smile-o hts-logo-app"></i>
+
+      <div class="hts-search-box-of-header">
+        <md-content class="">
+          <form ng-submit="$event.preventDefault()">
+            <md-autocomplete ng-disabled="vm.isDisabled" md-no-cache="vm.noCache" md-selected-item="vm.selectedItem" md-search-text-change="vm.searchTextChange(vm.searchText)" md-search-text="vm.searchText" md-selected-item-change="vm.selectedItemChange(item)" md-items="item in vm.querySearch(vm.searchText)" md-item-text="item.display" md-min-length="0" placeholder="What is your favorite US state?">
+              <md-item-template>
+                <span md-highlight-text="vm.searchText" md-highlight-flags="^i">{{item.display}}</span>
+              </md-item-template>
+              <md-not-found>
+                No matches found for "{{vm.searchText}}".
+              </md-not-found>
+            </md-autocomplete>
+          </form>
+        </md-content>
+      </div>
+      <md-button class="md-raised md-warn hts-button-search-app">Tiem kiem</md-button>
+    </div>
+
+  </section>
+
+  <!--menu 3-->
+  <section>
+
+    <!--Carousel-->
+    <div>
+      <div>
+        <carousel interval="vm.myInterval" no-wrap="vm.noWrapSlides">
+          <slide ng-repeat="slide in vm.slides" active="slide.active">
+            <img ng-src="{{slide.image}}" style="margin:auto;">
+            <div class="carousel-caption">
+              <h4>Slide {{$index}}</h4>
+              <p>{{slide.text}}</p>
+            </div>
+          </slide>
+        </carousel>
+      </div>
+    </div>
+
+
+    <div class="htl-menu-right-on-toolbar">
+      <div class="htl-option-and-account" ng-if="vm.wasLogin">
+        <md-button flex="50" class="md-primary htl-button-option" ng-click="vm.showGridBottomSheet($event)">
+          Options
+        </md-button>
+        <!-- Single button with keyboard nav -->
+        <div class="btn-group" dropdown keyboard-nav>
+          <md-button flex="50" class="md-primary htl-button-account" ng-click="" dropdown-toggle>
+            Your Account
+            <span class="caret"></span>
+          </md-button>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="simple-btn-keyboard-nav">
+            <li role="menuitem"><a href="#">Action</a></li>
+            <li role="menuitem"><a href="#">Another action</a></li>
+            <li role="menuitem"><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li role="menuitem"><a href="#">Separated link</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!--mini screen-->
+  <section class="htl-menu-toolbar">
+    <div class="htl-wrapper-menu-toolbar">
+      <nav class="htl-list-menu">
+        <ul>
+          <li ng-repeat="tab in mainCtrl.dataCache.menus" title="{{tab.name}}"
+              ng-class="{'tab-current' : tab.selected}">
+            <a href="#{{tab.link}}">{{tab.name}}</a>
+          </li>
+        </ul>
+      </nav>
+      <!--menu with mini screen-->
+      <div layout="column" flex-sm="100" flex="33" layout-align="center center" class="htl-toolbar-menu-mini-screen">
+        <md-menu md-position-mode="target-right target" >
+          <md-button aria-label="Open demo menu" class="md-icon-button htl-icon-menu-toolbar" ng-click="$mdOpenMenu($event)">
+            <i class="fa fa-bars"></i>
+          </md-button>
+          <md-menu-content width="4" >
+            <md-menu-item ng-repeat="item in [1, 2, 3]">
+              <md-button ng-click="ctrl.announceClick($index)">
+                <div layout="row">
+                  <p flex>Option {{item}}</p>
+                  <md-icon md-menu-align-target md-svg-icon="call:portable-wifi-off" style="margin: auto 3px auto 0;"></md-icon>
+                </div>
+              </md-button>
+            </md-menu-item>
+          </md-menu-content>
+        </md-menu>
+      </div>
+    </div>
+  </section>
+</div>

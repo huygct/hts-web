@@ -1,0 +1,138 @@
+<!doctype html>
+<html ng-app="happyToStudyApp" ng-controller="MainController as mainCtrl">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css"/>
+  <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css"/>
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+
+  <!--header-->
+  <link rel="stylesheet" href="scripts/header/styles/header.css">
+
+  <link rel="stylesheet" href="scripts/pages/main/slyles/main.css">
+
+  <link rel="stylesheet" href="reusable_components/menuToggle/styples/menuToggle.css">
+
+
+  <link rel="stylesheet" href="scripts/english/effortEnglish/styles/effortEnglish.css">
+
+  <link rel="stylesheet" href="scripts/common/styles/common.css">
+
+  <link rel="stylesheet" href="scripts/main/styles/main.css">
+  <!-- endbuild -->
+</head>
+<body>
+<!-- Add your site or application content here -->
+<div id="wrapper">
+
+  <header class="htl-header header-fixed">
+    <!--<section class="htl-index-menu-main">-->
+      <!--menu-Main-->
+    <!--</section>-->
+    <div header-app></div>
+  </header>
+
+  <section role="main" class="container main-body">
+
+    <!--</md-sidenav>-->
+    <div layout="column" flex id="content">
+      <md-content layout="column" flex class="md-padding">
+        <div class="htl-container">
+          <div ng-view=""></div>
+        </div>
+      </md-content>
+    </div>
+    <!--</div>-->
+  </section>
+
+  <!--<img src="images/48.jpg" alt="Mountain View" style="width:304px;height:228px;">-->
+
+  <footer class="footer">
+    <div class="container">
+      <p>Footer pages</p>
+    </div>
+  </footer>
+</div>
+
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-touch/angular-touch.js"></script>
+<script src="bower_components/angular-aria/angular-aria.js"></script>
+<script src="bower_components/angular-messages/angular-messages.js"></script>
+<script src="bower_components/angular-material/angular-material.js"></script>
+
+<script src="bower_components/i18next/i18next.js"></script>
+<script src="bower_components/ng-i18next/dist/ng-i18next.js"></script>
+
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+
+
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+
+<script src="reusable_components/htl.com.reusableComponents.js"></script>
+<script src="reusable_components/menuToggle/menuToggle.directive.js"></script>
+
+<!--header-->
+<script src="scripts/header/header.config.js"></script>
+<script src="scripts/header/header.directive.js"></script>
+<script src="scripts/header/header.controller.js"></script>
+
+<!--main-->
+<script src="scripts/pages/main/main.config.js"></script>
+<script src="scripts/pages/main/main.constant.js"></script>
+<script src="scripts/pages/main/main.service.js"></script>
+<script src="scripts/pages/main/main.controller.js"></script>
+<script src="scripts/pages/main/main.directive.js"></script>
+
+<!--demo get audio-->
+<script src="scripts/_demo/getAudio/getAudio.config.js"></script>
+<script src="scripts/_demo/getAudio/services/getAudio.service.js"></script>
+<script src="scripts/_demo/getAudio/controllers/getAudio.controller.js"></script>
+
+<!--demo uiBootstrap-->
+<script src="scripts/_demo/UIBootstrap/uibootstrap.config.js"></script>
+<script src="scripts/_demo/UIBootstrap/controllers/UIBootstrapController.js"></script>
+<script src="scripts/_demo/UIBootstrap/controllers/UIBootstrapRouterController.js"></script>
+
+<script src="scripts/_demo/UIBootstrap/Alert/alert.directive.js"></script>
+
+<script src="scripts/main/controllers/gridBottomSheet.controller.js"></script>
+
+<!--english-->
+<script src="scripts/english/english.config.js"></script>
+<script src="scripts/english/englishRouter.controller.js"></script>
+<script src="scripts/english/english/directives/english.controller.js"></script>
+<script src="scripts/english/english/directives/english.directive.js"></script>
+
+<script src="scripts/english/effortEnglish/directives/effortEnglish.controller.js"></script>
+<script src="scripts/english/effortEnglish/directives/effortEnglish.directive.js"></script>
+<script src="scripts/english/effortEnglish/services/effortEnglish.service.js"></script>
+
+<script src="scripts/english/video/directives/videoEnglish.directive.js"></script>
+
+<script src="scripts/entertainment/entertainment/controllers/entertainment.controller.js"></script>
+
+<!-- endbuild -->
+</body>
+</html>

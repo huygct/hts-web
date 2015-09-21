@@ -1,0 +1,34 @@
+{
+  "nameWebApp": "HappyToStudy",
+  "common": {
+    "header": {
+
+    },
+    "footer": {
+
+    },
+    "context": {
+
+    },
+    "button": {
+      "ok": "Ok",
+      "apply": "Apply",
+      "cancel": "Cancel"
+    }
+  },
+  "english": {
+    "effortEnglish": {
+      "titleChooseLevel": "Please choose your level to study by effort english"
+
+    },
+    "film": {
+
+    },
+    "video": {
+
+    }
+  },
+  "entertainment": {
+
+  }
+}

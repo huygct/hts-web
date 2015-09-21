@@ -1,0 +1,22 @@
+<div>
+  <ul class="menuToggle-wrapper">
+    <li ng-repeat="menu in menuToggleCtrl.menuToggleOptions.menus">
+      <md-button ng-click="menuToggleCtrl.setExpand(menu)" class="menuToggle-parent-button" ng-href=""
+                 ng-class="{'menuToggle-selected' : menuToggleCtrl.selected === menu.id}">
+        <div>
+          <span>{{menu.name}}</span>
+          <i class="fa menuToggle-icon-expand" ng-class="menu.showChildren ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+        </div>
+      </md-button>
+      <div ng-if="menu.children" ng-show="menu.showChildren" class="menuToggle-wrapper-button">
+        <div ng-repeat="child in menu.children">
+          <md-button ng-href="{{child.link}}" class="menuToggle-child-button"
+                     ng-click="menuToggleCtrl.clickChildrenButton(child)"
+                     ng-class="{'menuToggle-selected' : menuToggleCtrl.selected === child.id}">
+            <span class="menuToggle-child-name">{{child.name}}</span>
+          </md-button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

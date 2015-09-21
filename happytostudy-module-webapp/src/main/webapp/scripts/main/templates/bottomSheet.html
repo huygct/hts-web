@@ -1,0 +1,55 @@
+<div>
+  <md-bottom-sheet class="md-grid htl-bottomSheet">
+    <div class="htl-list-option" ng-if="!action">
+      <md-list>
+        <md-list-item ng-repeat="item in items">
+          <md-button class="md-grid-item-content" ng-click="listItemClick($index)">
+            <!--<md-icon md-svg-src="{{item.icon}}"></md-icon>-->
+            <div class="md-grid-text"> {{ item.name }}</div>
+          </md-button>
+        </md-list-item>
+      </md-list>
+    </div>
+
+    <div class="htl-bottomSheet-add-vocabulary" ng-if="addVocabulary && action">
+      <div class="htl-title-add-vocabulary">
+        New Vocabulary Word
+      </div>
+      <md-content layout-padding="">
+        <form name="vocabularyForm">
+          <md-input-container>
+            <label>New word</label>
+            <input md-maxlength="50" required="" name="newWord" ng-model="vocabulary.word">
+
+            <div ng-messages="vocabularyForm.newWord.$error">
+              <div ng-message="required">This is required.</div>
+              <div ng-message="md-maxlength">The word has to be less than 50 characters long.</div>
+            </div>
+          </md-input-container>
+
+          <md-input-container>
+            <label>Mean of word</label>
+            <input required="" name="meanOfWord" ng-model="vocabulary.meanOfWord">
+
+            <div ng-messages="vocabularyForm.meanOfWord.$error">
+              <div ng-message="required">This is required.</div>
+            </div>
+          </md-input-container>
+
+          <md-input-container>
+            <label>Make a sentence</label>
+            <textarea ng-model="vocabulary.sentenceWithWord" name="sentence" md-maxlength="150"></textarea>
+
+            <div ng-messages="vocabularyForm.sentence.$error">
+              <div ng-message="md-maxlength">The sentence has to be less than 150 characters long.</div>
+            </div>
+          </md-input-container>
+          <div class="htl-button htl-button-vocabulary">
+            <md-button class="md-raised md-primary" ng-disabled="!vocabularyForm.$valid" ng-click="clickButtonAdd(vocabulary)">Add</md-button>
+            <md-button class="md-raised" ng-click="clickButtonCancel()">Cancel</md-button>
+          </div>
+        </form>
+      </md-content>
+    </div>
+  </md-bottom-sheet>
+</div>

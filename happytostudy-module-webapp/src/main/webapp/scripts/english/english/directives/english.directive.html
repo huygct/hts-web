@@ -1,0 +1,11 @@
+<div>
+  <tabset>
+    <tab ng-repeat="tab in vm.menuEnglish" heading="{{tab.name}}" ng-click="vm.chooseTab(tab)" active="tab.active">
+    </tab>
+  </tabset>
+
+  <div ng-include="vm.templateUrl"></div>
+</div>
+
+
+
