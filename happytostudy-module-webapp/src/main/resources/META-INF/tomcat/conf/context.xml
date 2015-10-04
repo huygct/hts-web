@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <Context>
-    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+    <!--<WatchedResource>WEB-INF/web.xml</WatchedResource>
 
     <Resource
             factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
@@ -22,5 +22,5 @@
             timeBetweenEvictionRunsMillis="30000"
             minEvictableIdleTimeMillis="60000"
             url="jdbc:mysql://localhost:3306/happyToStudy" />
-
+-->
 </Context>
