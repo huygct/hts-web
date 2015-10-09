@@ -216,7 +216,7 @@
     </dependencies>
 
     <build>
-        <finalName>happytostudy-module-webapp</finalName>
+        <!--<finalName>app</finalName>-->
         <plugins>
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
@@ -227,7 +227,8 @@
                     <server>Tomcat7Server</server>
                     <username>tomcat</username>
                     <password>tomcat</password>
-                    <path>/${project.build.finalName}</path>
+                    <!--<path>/${project.build.finalName}</path>-->
+                    <path>/</path>
                     <additionalConfigFilesDir>src/main/resources/META-INF/tomcat/conf</additionalConfigFilesDir>
                     <systemProperties>
                         <log4j.configuration>file:./src/main/resources/META-INF/tomcat/conf/log4j.xml

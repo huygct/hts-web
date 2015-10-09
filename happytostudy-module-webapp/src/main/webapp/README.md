@@ -1,222 +1,268 @@
-Introduction
-============
+# hottowel
 
-**AdminLTE** -- is a fully responsive admin template. Based on **[Bootstrap 3](https://github.com/twbs/bootstrap)** framework. Highly customizable and easy to use. Fits many screen resolutions from small mobile devices to large desktops. Check out the live preview now and see for yourself.
+**Generated from HotTowel Angular**
 
-**Download & Preview on [Almsaeed Studio](https://almsaeedstudio.com)**
+>*Opinionated Angular style guide for teams by [@john_papa](//twitter.com/john_papa)*
 
-Looking for Premium Templates?
-------------------------------
-**Almsaeed studio just opened a new premium templates page. Hand picked to insure the best quality and the most affordable prices. Visit https://almsaeedstudio.com/premium for more information.**
+>More details about the styles and patterns used in this app can be found in my [Angular Style Guide](https://github.com/johnpapa/angularjs-styleguide) and my [Angular Patterns: Clean Code](http://jpapa.me/ngclean) course at [Pluralsight](http://pluralsight.com/training/Authors/Details/john-papa) and working in teams.
 
+## Prerequisites
 
-!["AdminLTE Presentation"] (https://almsaeedstudio.com/AdminLTE2.png "AdminLTE Presentation")
+1. Install [Node.js](http://nodejs.org)
+ - on OSX use [homebrew](http://brew.sh) `brew install node`
+ - on Windows use [chocolatey](https://chocolatey.org/) `choco install nodejs`
 
-**AdminLTE** has been carefully coded with clear comments in all of its JS, LESS and HTML files. LESS has been used to increase code customizability.
+2. Install Yeoman `npm install -g yo`
 
-Installation
-------------
-There are multiple ways to install AdminLTE.
+3. Install these NPM packages globally
 
-####Download:
+    ```bash
+    npm install -g bower gulp nodemon
+    ```
 
-Download from Github or [visit Almsaeed Studio](https://almsaeedstudio.com) and download the latest release.
+    >Refer to these [instructions on how to not require sudo](https://github.com/sindresorhus/guides/blob/master/npm-global-without-sudo.md)
 
-####Using The Command Line:
+## Running HotTowel
 
-**Github**
+### Linting
+ - Run code analysis using `gulp vet`. This runs jshint, jscs, and plato.
 
-- Fork the repository ([here is the guide](https://help.github.com/articles/fork-a-repo/)).
-- Clone to your machine
+### Tests
+ - Run the unit tests using `gulp test` (via karma, mocha, sinon).
+
+### Running in dev mode
+ - Run the project with `gulp serve-dev`
+
+ - opens it in a browser and updates the browser with any files changes.
+
+### Building the project
+ - Build the optimized project using `gulp build`
+ - This create the optimized code for the project and puts it in the build folder
+
+### Running the optimized code
+ - Run the optimize project from the build folder with `gulp serve-build`
+
+## Exploring HotTowel
+HotTowel Angular starter project
+
+### Structure
+The structure also contains a gulpfile.js and a server folder. The server is there just so we can serve the app using node. Feel free to use any server you wish.
+
+	/src
+		/client
+			/app
+			/content
+
+### Installing Packages
+When you generate the project it should run these commands, but if you notice missing packages, run these again:
+
+ - `npm install`
+ - `bower install`
+
+### The Modules
+The app has 4 feature modules and depends on a series of external modules and custom but cross-app modules
+
 ```
-git clone https://github.com/YOUR_USERNAME/AdminLTE.git
+app --> [
+        app.admin --> [
+            app.core,
+            app.widgets
+        ],
+        app.dashboard --> [
+            app.core,
+            app.widgets
+        ],
+        app.layout --> [
+            app.core
+        ],
+        app.widgets,
+		app.core --> [
+			ngAnimate,
+			ngSanitize,
+			ui.router,
+			blocks.exception,
+			blocks.logger,
+			blocks.router
+		]
+    ]
 ```
 
-**Bower**
+#### core Module
+Core modules are ones that are shared throughout the entire application and may be customized for the specific application. Example might be common data services.
 
-```
-bower install admin-lte
-```
+This is an aggregator of modules that the application will need. The `core` module takes the blocks, common, and Angular sub-modules as dependencies.
 
-**Composer**
+#### blocks Modules
+Block modules are reusable blocks of code that can be used across projects simply by including them as dependencies.
 
-```
-composer require "almasaeed2010/adminlte=~2.0"
-```
+##### blocks.logger Module
+The `blocks.logger` module handles logging across the Angular app.
 
-Documentation
--------------
-Visit the [online documentation](https://almsaeedstudio.com/themes/AdminLTE/documentation/index.html) for the most
-updated guide. Information will be added on a weekly basis.
+##### blocks.exception Module
+The `blocks.exception` module handles exceptions across the Angular app.
 
-Browser Support
----------------
-- IE 9+
-- Firefox (latest)
-- Chrome (latest)
-- Safari (latest)
-- Opera (latest)
+It depends on the `blocks.logger` module, because the implementation logs the exceptions.
 
-Contribution
-------------
-Contribution are always **welcome and recommended**! Here is how:
+##### blocks.router Module
+The `blocks.router` module contains a routing helper module that assists in adding routes to the $routeProvider.
 
-- Fork the repository ([here is the guide](https://help.github.com/articles/fork-a-repo/)).
-- Clone to your machine ```git clone https://github.com/YOUR_USERNAME/AdminLTE.git```
-- Make your changes
-- Create a pull request
+## Gulp Tasks
 
-#### Contribution Requirements:
+### Task Listing
 
-- When you contribute, you agree to give a non-exclusive license to Almsaeed Studio to use that contribution in any context as we (Almsaeed Studio) see appropriate.
-- If you use content provided by another party, it must be appropriately licensed using an [open source](http://opensource.org/licenses) license.
-- Contributions are only accepted through Github pull requests.
-- Finally, contributed code must work in all supported browsers (see above for browser support).
+- `gulp help`
 
-License
--------
-AdminLTE is an open source project by [Almsaeed Studio](https://almsaeedstudio.com) that is licensed under [MIT](http://opensource.org/licenses/MIT). Almsaeed Studio
-reserves the right to change the license of future releases.
+    Displays all of the available gulp tasks.
 
-Todo List
----------
-- ~~Light sidebar colors~~ (Done v2.1.0)
-- ~~Right sidebar~~ (Done v2.1.0)
-- ~~Minified main-sidebar~~ (Done v2.1.0)
-- Right to left support
-- Custom pace style
+### Code Analysis
 
-Legacy Realeases
-----------------
-AdminLTE 1.x can be easily upgraded to 2.x using [this guide](https://almsaeedstudio.com/themes/AdminLTE/documentation/index.html#upgrade), but if you intend to keep using AdminLTE 1.x, you can download the latest release from the [releases](https://github.com/almasaeed2010/AdminLTE/releases) section above.
+- `gulp vet`
 
-Change log
-----------
-**v2.3.0:**
-- Added social widgets (found in the widgets page)
-- Added profile page
-- Fix issue #430 (requires ```.hold-transition``` to be added to ```<body>```)
-- Fix issue #578
-- Fix issue #579
+    Performs static code analysis on all javascript files. Runs jshint and jscs.
 
-**v2.2.1:**
-- Bug Fixes
-- Removed many ```!important``` statements in css
-- Activate boxWidget automatically when created after the page has loaded
-- Activate sidebar menu treeview links automatically when created after the page has loaded
-- Updated Font Awesome thanks to @Dennis14e
-- Added JSHint to Grunt tasks (Find JS errors)
-- Added CSSLint to Grunt tasks (Find CSS errors)
-- Added Image to Grunt tasks (compress images)
-- Added Clean to Grunt tasks (remove unwanted files like uncompressed images)
-- Updated Bootstrap to 3.3.5
+- `gulp vet --verbose`
 
-**v2.2.0:**
-- Bug fixes
-- Added support for [Select2](https://select2.github.io/)
-- Updated ChartJS
+    Displays all files affected and extended information about the code analysis.
 
-**v2.1.2:**
-- Added explicit BoxWidget activation function issue #450
-- Crushed some bugs
+- `gulp plato`
 
-**v2.1.1:**
-- Fix version error
+    Performs code analysis using plato on all javascript files. Plato generates a report in the reports folder.
 
-**v2.1.0:**
-- Update Ion Icons
-- Added right sidebar ```.control-sidebar```
-- Control sidebar has 2 open effects: slide over content and push content
-- Control sidebar converts to always slide over content on small screens
-- Added 6 new light sidebar skins
-- Updated demo menu
-- Added ChartJS preview page
-- Fixed some minor bugs
-- Added light control sidebar skin
-- Added expand on hover option for sidebar mini
-- Added fixed control sidebar layout
+### Testing
 
-**v2.0.5:**
-- Fixed issue #288
+- `gulp serve-specs`
 
-**v2.0.4:**
-- Fixed bower.json to pick up newest release.
+    Serves and browses to the spec runner html page and runs the unit tests in it. Injects any changes on the fly and re runs the tests. Quick and easy view of tests as an alternative to terminal via `gulp test`.
 
-**v2.0.3**
-- Bug fixes
-- Fixed extra page when printing issue #264
-- Updated documentation and fixed links scrolling issue
-- Created print.less file (this makes it easier if you want to create a seperate CSS file for printing)
-- Fixed sidebar stretching issue #275
-- Fixed checkbox out of bounds issue in WYSIHTML5 editor.
+- `gulp test`
 
-**v2.0.2:**
-- Solved issue with hidden arrow in select inputs.
+    Runs all unit tests using karma runner, mocha, chai and sinon with phantomjs. Depends on vet task, for code analysis.
 
-**v2.0.1:**
-- Updated README.md
-- Fixed versioning issue in CSS, LESS, and JS
-- Updated box-shadow for boxes
-- Updated docs
+- `gulp test --startServers`
 
-**v2.0.0:**
+    Runs all unit tests and midway tests. Cranks up a second node process to run a server for the midway tests to hit a web api.
 
-- Major layout bug fixes
-- Change in layout mark up
-- Added transitions to the sidebar
-- New skins and modified previous skins
-- Change in color scheme to a more complementing scheme
-- Added footer support
-- Removed pace.js from the main app.js
-- Added support for collapsed sidebar as an initial state (add .sidebar-collapse to the body tag)
-- Added boxed layout (.layout-boxed)
-- Enhanced consistency in padding and margining
-- Updated Bootstrap to 3.3.2
-- Fixed navbar dropdown menu on small screens positioning issues.
-- Updated Ion Icons to 2.0.0
-- Updated FontAwesome to 4.3.0
-- Added ChartJS 1.0.1
-- Removed iCheck dependency
-- Created Dashboard 2.0
-- Created new Chat widget (DirectChat)
-- Added transitions to DirectChat
-- Added contacts pane to DirectChat
-- Changed .right-side to .content-wrapper
-- Changed .navbar-right to .navbar-custom-menu
-- Removed unused files
-- Updated lockscreen style (HTML markup changed!)
-- Updated Login & Registration pages (HTML markup changed!)
-- Updated buttons style.
-- Enhanced border-radius consistency
-- Added mailbox: inbox, read, and compose pages
-- Bootstrap & jQuery are now hosted locally
-- Created documentation.
+- `gulp autotest`
 
-**ver 1.2.0:**
+    Runs a watch to run all unit tests.
 
-- Fixed the sidebar scroll issue when using the fixed layout.
-- Added [Bootstrap Social Buttons](http://lipis.github.io/bootstrap-social/ "Bootstrap Social") plugin.
-- Fixed RequireJS bug. Thanks to [StaticSphere](https://github.com/StaticSphere "github user").
+- `gulp autotest --startServers`
 
-**ver 1.1.0:**
+    Runs a watch to run all unit tests and midway tests. Cranks up a second node process to run a server for the midway tests to hit a web api.
 
-- Added new skin. class: .skin-black
-- Added [pace](http://github.hubspot.com/pace/docs/welcome/ "pace") plugin.
+### Cleaning Up
 
-Image Credits
--------------
-[Pixeden](http://www.pixeden.com/psd-web-elements/flat-responsive-showcase-psd)
+- `gulp clean`
 
-[Graphicsfuel](http://www.graphicsfuel.com/2013/02/13-high-resolution-blur-backgrounds/)
+    Remove all files from the build and temp folders
 
-[Pickaface](http://pickaface.net/)
+- `gulp clean-images`
 
-[Unsplash](https://unsplash.com/)
+    Remove all images from the build folder
 
-[Uifaces](http://uifaces.com/)
+- `gulp clean-code`
 
-Donations
----------
-Donations are **greatly appreciated!**
+    Remove all javascript and html from the build folder
 
-[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif "AdminLTE Presentation")](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=629XCUSXBHCBC "Donate")
+- `gulp clean-fonts`
+
+    Remove all fonts from the build folder
+
+- `gulp clean-styles`
+
+    Remove all styles from the build folder
+
+### Fonts and Images
+
+- `gulp fonts`
+
+    Copy all fonts from source to the build folder
+
+- `gulp images`
+
+    Copy all images from source to the build folder
+
+### Styles
+
+- `gulp styles`
+
+    Compile less files to CSS, add vendor prefixes, and copy to the build folder
+
+### Bower Files
+
+- `gulp wiredep`
+
+    Looks up all bower components' main files and JavaScript source code, then adds them to the `index.html`.
+
+    The `.bowerrc` file also runs this as a postinstall task whenever `bower install` is run.
+
+### Angular HTML Templates
+
+- `gulp templatecache`
+
+    Create an Angular module that adds all HTML templates to Angular's $templateCache. This pre-fetches all HTML templates saving XHR calls for the HTML.
+
+- `gulp templatecache --verbose`
+
+    Displays all files affected by the task.
+
+### Serving Development Code
+
+- `gulp serve-dev`
+
+    Serves the development code and launches it in a browser. The goal of building for development is to do it as fast as possible, to keep development moving efficiently. This task serves all code from the source folders and compiles less to css in a temp folder.
+
+- `gulp serve-dev --nosync`
+
+    Serves the development code without launching the browser.
+
+- `gulp serve-dev --debug`
+
+    Launch debugger with node-inspector.
+
+- `gulp serve-dev --debug-brk`
+
+    Launch debugger and break on 1st line with node-inspector.
+
+### Building Production Code
+
+- `gulp optimize`
+
+    Optimize all javascript and styles, move to a build folder, and inject them into the new index.html
+
+- `gulp build`
+
+    Copies all fonts, copies images and runs `gulp optimize` to build the production code to the build folder.
+
+### Serving Production Code
+
+- `gulp serve-build`
+
+    Serve the optimized code from the build folder and launch it in a browser.
+
+- `gulp serve-build --nosync`
+
+    Serve the optimized code from the build folder and manually launch the browser.
+
+- `gulp serve-build --debug`
+
+    Launch debugger with node-inspector.
+
+- `gulp serve-build --debug-brk`
+
+    Launch debugger and break on 1st line with node-inspector.
+
+### Bumping Versions
+
+- `gulp bump`
+
+    Bump the minor version using semver.
+    --type=patch // default
+    --type=minor
+    --type=major
+    --type=pre
+    --ver=1.2.3 // specific version
+
+## License
+
+MIT
