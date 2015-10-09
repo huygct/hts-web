@@ -95,7 +95,7 @@
     </jsp-config>
 
     <welcome-file-list>
-    	<welcome-file>/src/client/index.html</welcome-file>
+    	<welcome-file>/client/index.html</welcome-file>
 	</welcome-file-list>
 
 </web-app>
