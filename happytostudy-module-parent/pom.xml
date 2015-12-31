@@ -15,7 +15,7 @@
         <slf4j.version>1.6.1</slf4j.version>
         <spring.framework.version>4.1.4.RELEASE</spring.framework.version>
         <spring.security.version>3.2.5.RELEASE</spring.security.version>
-        <spring.data.mongo.version>1.0.2.RELEASE</spring.data.mongo.version>
+        <spring.data.mongo.version>1.8.2.RELEASE</spring.data.mongo.version>
         <javax.servlet.version>3.1.0</javax.servlet.version>
         <javax.servlet.jsp.version>2.2</javax.servlet.jsp.version>
         <javax.servlet.jsp.jstl.version>1.2.1</javax.servlet.jsp.jstl.version>

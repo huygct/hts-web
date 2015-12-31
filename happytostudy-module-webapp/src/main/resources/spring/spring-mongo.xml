@@ -26,14 +26,14 @@
   </bean>
 
     <bean id="userCredentials" class="org.springframework.data.authentication.UserCredentials">
-        <constructor-arg name="username" value="root" />
-        <constructor-arg name="password" value="123456" />
+        <constructor-arg name="username" value="admin" />
+        <constructor-arg name="password" value="admin" />
     </bean>
 
   <!-- Factory bean that creates the Mongo instance -->
   <bean id="mongo" class="org.springframework.data.mongodb.core.MongoFactoryBean">
-    <property name="host" value="ds027829.mongolab.com"/>
-    <property name="port" value="27829" />
+    <property name="host" value="ds061464.mongolab.com"/>
+    <property name="port" value="61464" />
   </bean>
 
   <!-- Use this post processor to translate any MongoExceptions thrown in @Repository annotated classes -->
