@@ -1,6 +1,6 @@
 package com.huyvn.happytostudy.model;
 
-import org.springframework.data.annotation.Id;
+import com.huyvn.happytostudy.model.common.GenericModel;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -15,10 +15,7 @@ import java.util.Set;
  * Created by Huy Nghi on 9/17/2015.
  */
 @Document(collection = "user")
-public class UserModel implements UserDetails{
-
-    @Id
-    private String id;
+public class UserModel extends GenericModel implements UserDetails{
 
     private String name;
     private String email;
@@ -37,19 +34,6 @@ public class UserModel implements UserDetails{
         this.name = name;
         this.password = passwordHash;
     }
-
-
-    public String getId()
-    {
-        return this.id;
-    }
-
-
-    public void setId(String id)
-    {
-        this.id = id;
-    }
-
 
     public String getName()
     {

@@ -1,4 +1,4 @@
-package com.huyvn.happytostudy.model;
+package com.huyvn.happytostudy.model.common;
 
 public class SampleResponse {
     private String message;

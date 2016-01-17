@@ -1,10 +1,10 @@
-package com.huyvn.happytostudy.model;
-
-import java.io.Serializable;
-import java.util.Date;
+package com.huyvn.happytostudy.model.common;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
+
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by thuynghi on 15/01/2016.

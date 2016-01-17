@@ -1,7 +1,8 @@
-package com.huyvn.happytostudy.services;
+package com.huyvn.happytostudy.services.impl;
 
 import com.huyvn.happytostudy.model.UserModel;
 import com.huyvn.happytostudy.repositories.UserRepository;
+import com.huyvn.happytostudy.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

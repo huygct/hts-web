@@ -1,7 +1,7 @@
 package com.huyvn.happytostudy.controllers;
 
-import com.huyvn.happytostudy.model.SampleResponse;
-import com.huyvn.happytostudy.services.SampleService;
+import com.huyvn.happytostudy.model.common.SampleResponse;
+import com.huyvn.happytostudy.services.common.SampleService;
 import com.huyvn.happytostudy.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

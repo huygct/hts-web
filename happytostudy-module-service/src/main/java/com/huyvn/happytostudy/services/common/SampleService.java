@@ -1,6 +1,6 @@
-package com.huyvn.happytostudy.services;
+package com.huyvn.happytostudy.services.common;
 
-import com.huyvn.happytostudy.model.SampleResponse;
+import com.huyvn.happytostudy.model.common.SampleResponse;
 import org.springframework.stereotype.Service;
 
 @Service

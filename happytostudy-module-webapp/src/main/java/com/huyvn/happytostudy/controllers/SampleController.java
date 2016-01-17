@@ -1,8 +1,8 @@
 package com.huyvn.happytostudy.controllers;
 
-import com.huyvn.happytostudy.model.SampleResponse;
+import com.huyvn.happytostudy.model.common.SampleResponse;
 import com.huyvn.happytostudy.model.UserModel;
-import com.huyvn.happytostudy.services.SampleService;
+import com.huyvn.happytostudy.services.common.SampleService;
 import com.huyvn.happytostudy.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -36,14 +36,14 @@ public class SampleController {
     public @ResponseBody
     List<UserModel> listUsersJson() {
 
-        UserModel userUser = new UserModel("user", passwordEncoder.encode("user"));
-        userUser.addRole("user");
-        userService.addUser(userUser);
-
-        UserModel adminUser = new UserModel("admin", passwordEncoder.encode("admin"));
-        adminUser.addRole("user");
-        adminUser.addRole("admin");
-        userService.addUser(adminUser);
+//        UserModel userUser = new UserModel("user", passwordEncoder.encode("user"));
+//        userUser.addRole("user");
+//        userService.addUser(userUser);
+//
+//        UserModel adminUser = new UserModel("admin", passwordEncoder.encode("admin"));
+//        adminUser.addRole("user");
+//        adminUser.addRole("admin");
+//        userService.addUser(adminUser);
 
         return userService.findAll();
     }

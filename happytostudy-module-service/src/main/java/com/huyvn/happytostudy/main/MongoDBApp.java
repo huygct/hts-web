@@ -1,7 +1,7 @@
 package com.huyvn.happytostudy.main;
 
 import com.huyvn.happytostudy.services.UserService;
-import com.huyvn.happytostudy.services.UserServiceImpl;
+import com.huyvn.happytostudy.services.impl.UserServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ConfigurableApplicationContext;

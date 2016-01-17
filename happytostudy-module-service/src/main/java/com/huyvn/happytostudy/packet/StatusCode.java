@@ -25,6 +25,6 @@ public interface StatusCode {
     public static final int CODE_401 = 401; // Unauthorized
     public static final int CODE_402 = 402; // Payment Required
     public static final int CODE_403 = 403; // Forbidden
-    public static final int CODE_404 = 402; // Not found
+    public static final int CODE_404 = 404; // Not found
 
 }

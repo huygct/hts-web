@@ -1,6 +1,7 @@
 package com.huyvn.happytostudy.controllers;
 
 import com.huyvn.happytostudy.authentication.TokenUtils;
+import com.huyvn.happytostudy.model.UserModel;
 import com.huyvn.happytostudy.services.UserService;
 import com.huyvn.happytostudy.transfer.TokenTransfer;
 import com.huyvn.happytostudy.transfer.UserTransfer;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -35,6 +37,12 @@ public class UserController {
     @Autowired
     @Qualifier("authenticationManager")
     private AuthenticationManager authManager;
+
+    @RequestMapping(value = "getUserList", method = RequestMethod.GET, headers = "Accept=application/json")
+    public @ResponseBody
+    List<UserModel> getUsetList() {
+        return userService.findAll();
+    }
 
     /**
      * Retrieves the currently logged in user.
@@ -87,16 +95,12 @@ public class UserController {
     public @ResponseBody
     TokenTransfer authenticate_2()
     {
-        System.out.println("------------ aaa");
-
         String username = "admin";
         String password = "admin";
 
         UsernamePasswordAuthenticationToken authenticationToken =
                 new UsernamePasswordAuthenticationToken(username, password);
-        System.out.println("------------ bbbb" + authenticationToken);
         Authentication authentication = this.authManager.authenticate(authenticationToken);
-        System.out.println("------------ cccc" + authentication);
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
 		/*
