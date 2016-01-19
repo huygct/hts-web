@@ -19,21 +19,21 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public List<Product> findAll() {
-        return null;
+        return productRepository.findAll();
     }
 
     @Override
-    public Product add(Product category) {
-        return null;
+    public Product add(Product product) {
+        return productRepository.insert(product);
     }
 
     @Override
-    public Product update(Product category) {
-        return null;
+    public Product update(Product product) {
+        return productRepository.save(product);
     }
 
     @Override
-    public void delete(Product category) {
-
+    public void delete(Product product) {
+        productRepository.delete(product.getId());
     }
 }
