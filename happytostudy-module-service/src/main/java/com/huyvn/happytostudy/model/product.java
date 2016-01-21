@@ -4,6 +4,8 @@ import com.huyvn.happytostudy.model.common.GenericModel;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+
 
 /**
  * Created by Knightzoro on 1/12/16.
@@ -20,14 +22,14 @@ public class Product extends GenericModel {
     private int style;
     private String description;
     private int quantity;
-    private ObjectId idCategory;
-    private ObjectId idPromotionProgram;
+    private List<ObjectId> idCategory;
+    private List<ObjectId> idPromotionProgram;
 
     public Product() {
 
     }
 
-    public Product(String name, float cost, float sale, String trademark, String promotion, int kind, int style, String description, int quantity) {
+    public Product(String name, float cost, float sale, String trademark, String promotion, int kind, int style, String description, int quantity, List<ObjectId> idCategory, List<ObjectId> idPromotionProgram) {
         this.name = name;
         this.cost = cost;
         this.sale = sale;
@@ -37,6 +39,8 @@ public class Product extends GenericModel {
         this.style = style;
         this.description = description;
         this.quantity = quantity;
+        this.idCategory = idCategory;
+        this.idPromotionProgram = idPromotionProgram;
     }
 
     public String getName() {
@@ -111,19 +115,19 @@ public class Product extends GenericModel {
         this.quantity = quantity;
     }
 
-    public ObjectId getIdCategory() {
+    public List<ObjectId> getIdCategory() {
         return idCategory;
     }
 
-    public void setIdCategory(ObjectId idCategory) {
+    public void setIdCategory(List<ObjectId> idCategory) {
         this.idCategory = idCategory;
     }
 
-    public ObjectId getIdPromotionProgram() {
+    public List<ObjectId> getIdPromotionProgram() {
         return idPromotionProgram;
     }
 
-    public void setIdPromotionProgram(ObjectId idPromotionProgram) {
+    public void setIdPromotionProgram(List<ObjectId> idPromotionProgram) {
         this.idPromotionProgram = idPromotionProgram;
     }
 }
