@@ -3,6 +3,7 @@ package com.huyvn.happytostudy.services.impl;
 import com.huyvn.happytostudy.model.Product;
 import com.huyvn.happytostudy.repositories.ProductRepository;
 import com.huyvn.happytostudy.services.ProductService;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,11 @@ public class ProductServiceImpl implements ProductService{
     @Override
     public List<Product> findAll() {
         return productRepository.findAll();
+    }
+
+    @Override
+    public Product findOne(ObjectId id) {
+        return productRepository.findOne(id);
     }
 
     @Override
