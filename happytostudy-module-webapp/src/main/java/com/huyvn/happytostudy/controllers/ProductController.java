@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -59,6 +60,9 @@ public class ProductController {
     Response<Product> addProduct (@RequestBody String productJson) {
         Response<Product> response = new Response<Product>();
         Product product = new Product();
+        List<ObjectId> categoryIdList = new ArrayList<ObjectId>();
+        List<ObjectId> promotionProgramIdList = new ArrayList<ObjectId>();
+
         try {
             JSONObject json = new JSONObject(productJson);
             product.setName(json.getString("name"));
@@ -70,8 +74,12 @@ public class ProductController {
             product.setStyle(json.getInt("style"));
             product.setDescription(json.getString("description"));
             product.setQuantity(json.getInt("quantity"));
-            product.setIdCategory(new ObjectId(json.getString("idCategory")));
-            product.setIdPromotionProgram(new ObjectId(json.getString("idPromotionProgram")));
+
+            categoryIdList.add(new ObjectId(json.getString("idCategory")));
+            product.setIdCategory(categoryIdList);
+
+            promotionProgramIdList.add(new ObjectId(json.getString("idPromotionProgram")));
+            product.setIdPromotionProgram(promotionProgramIdList);
 
 
             if (productService.add(product) != null) {
@@ -99,11 +107,12 @@ public class ProductController {
     public @ResponseBody
     Response<Product> updateProduct (@RequestBody String productJson) {
         Response<Product> response = new Response<Product>();
+        List<ObjectId> categoryIdList = new ArrayList<ObjectId>();
+        List<ObjectId> promotionProgramIdList = new ArrayList<ObjectId>();
         Product product;
         try {
             JSONObject json = new JSONObject(productJson);
             String idProduct = json.getString("id");
-            
 
             ObjectId id = new ObjectId(idProduct);
             product = productService.findOne(id);
@@ -118,9 +127,13 @@ public class ProductController {
                 product.setStyle(json.getInt("style"));
                 product.setDescription(json.getString("description"));
                 product.setQuantity(json.getInt("quantity"));
-                product.setIdCategory(new ObjectId(json.getString("idCategory")));
-                product.setIdPromotionProgram(new ObjectId(json.getString("idPromotionProgram")));
-                
+
+                categoryIdList.add(new ObjectId(json.getString("idCategory")));
+                product.setIdCategory(categoryIdList);
+
+                promotionProgramIdList.add(new ObjectId(json.getString("idPromotionProgram")));
+                product.setIdPromotionProgram(promotionProgramIdList);
+
                 productService.update(product);
                 
                 response.setCode(StatusCode.CODE_201);
