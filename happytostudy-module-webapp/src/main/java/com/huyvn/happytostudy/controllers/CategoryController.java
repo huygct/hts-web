@@ -58,6 +58,7 @@ public class CategoryController {
         try {
             JSONObject json = new JSONObject(categoryJson);
             category.setName(json.getString("name"));
+            category.setDescription(json.getString("description"));
             if (categoryService.add(category) != null) {
                 response.setCode(StatusCode.CODE_201);
                 response.setMessage(ResponseMessage.SUCCESS_MESSAGE);
@@ -83,11 +84,13 @@ public class CategoryController {
             JSONObject json = new JSONObject(categoryJson);
             String idCategory = json.getString("id");
             String nameCategory = json.getString("name");
+            String descriptionCategory = json.getString("description");
             ObjectId id = new ObjectId(idCategory);
             category = categoryService.findOne(id);
 
             if (category != null) {
                 category.setName(nameCategory);
+                category.setDescription(descriptionCategory);
                 categoryService.update(category);
                 response.setCode(StatusCode.CODE_201);
                 response.setMessage(ResponseMessage.SUCCESS_MESSAGE);

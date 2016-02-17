@@ -13,10 +13,12 @@ import java.util.List;
 @Document(collection = "Category")
 public class Category extends GenericModel {
     private String name;
+    private String description;
     private List<ObjectId> productIdList;
 
     public Category () {
         this.name = "";
+        this.description = "";
         this.productIdList = new ArrayList<ObjectId>();
     }
 
@@ -32,6 +34,14 @@ public class Category extends GenericModel {
         this.name = name;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public List<ObjectId> getProductIdList() {
         return productIdList;
     }
@@ -39,4 +49,5 @@ public class Category extends GenericModel {
     public void setProductIdList(List<ObjectId> productIdList) {
         this.productIdList = productIdList;
     }
+
 }
